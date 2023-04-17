@@ -26,7 +26,7 @@ Googel Fonts  */
   background: #ab8ce4; }
 
 .bg-flat-color-3 {
-  background: #03a9f3; }
+  background: #D10000; }
 
 .bg-flat-color-4 {
   background: #fb9678; }
@@ -50,7 +50,7 @@ Googel Fonts  */
   color: #ab8ce4; }
 
 .flat-color-3 {
-  color: #03a9f3; }
+  color: #D10000; }
 
 .flat-color-4 {
   color: #fb9678; }
@@ -147,7 +147,7 @@ Googel Fonts  */
   background: #ab8ce4; }
 
 .bg-flat-color-3 {
-  background: #03a9f3; }
+  background: #D10000; }
 
 .bg-flat-color-4 {
   background: #fb9678; }
@@ -171,7 +171,7 @@ Googel Fonts  */
   color: #ab8ce4; }
 
 .flat-color-3 {
-  color: #03a9f3; }
+  color: #D10000; }
 
 .flat-color-4 {
   color: #fb9678; }
@@ -543,7 +543,7 @@ canvas {
         font-size: 14px;
         border-radius: 7px; }
     .messenger-box .send-mgs .msg-send-btn {
-      background: #03a9f3;
+      background: #D10000;
       color: #fff;
       font-size: 28px;
       border-radius: 7px;
@@ -614,7 +614,7 @@ aside.left-panel {
       width: 100%; }
       .navbar .navbar-nav li.active .menu-icon, .navbar .navbar-nav li:hover .toggle_nav_button:before,
       .navbar .navbar-nav li .toggle_nav_button.nav-open:before {
-        color: #03a9f3; }
+        color: #D10000; }
       .navbar .navbar-nav li .dropdown-toggle:after {
         display: none; }
       .navbar .navbar-nav li > a {
@@ -627,7 +627,7 @@ aside.left-panel {
         position: relative;
         width: 100%; }
         .navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
-          color: #03a9f3; }
+          color: #D10000; }
         .navbar .navbar-nav li > a .menu-icon {
           color: #607d8b;
           float: left;
@@ -662,7 +662,7 @@ aside.left-panel {
             -webkit-transition: all .25s ease;
             transition: all .25s ease; }
           .navbar .navbar-nav li.menu-item-has-children a:hover:before {
-            border-color: #03a9f3 #03a9f3 transparent transparent; }
+            border-color: #D10000 #D10000 transparent transparent; }
         .navbar .navbar-nav li.menu-item-has-children .sub-menu {
           background: #fff;
           border: none;
@@ -694,7 +694,7 @@ aside.left-panel {
           top: 20px;
           right: -5px; }
         .navbar .navbar-nav li.menu-item-has-children.show a:hover:before {
-          border-color: transparent #03a9f3 #03a9f3 transparent; }
+          border-color: transparent #D10000 #D10000 transparent; }
         .navbar .navbar-nav li.menu-item-has-children.show .sub-menu {
           max-height: 1000px;
           opacity: 1;
@@ -703,7 +703,16 @@ aside.left-panel {
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:focus,
 .navbar .navbar-nav > .active > a:hover {
-  color: #03a9f3; }
+  color: #D10000; }
+
+.clearfix{
+
+
+
+
+}
+
+
 
 .navbar-nav li span.count {
   background: #a9d86e;
@@ -820,7 +829,7 @@ aside.left-panel {
 
 /* Right panel */
 .right-panel {
-  background: #f1f2f7;
+  background: linear-gradient(120.3deg, rgb(0, 0, 0) 10.6%, rgb(255, 0, 0) 97.7%);
   margin-left: 280px;
   margin-top: 55px; }
   .right-panel .top-left {
