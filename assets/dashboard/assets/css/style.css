@@ -862,7 +862,7 @@ aside.left-panel {
       text-transform: capitalize; }
     .right-panel .page-header .breadcrumb > li + li:before {
       padding: 0 5px;
-      color: #ccc;
+      color: #ccc;  
       content: "/\00a0"; }
 
 .right-panel header.header {

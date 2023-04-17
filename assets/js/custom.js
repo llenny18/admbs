@@ -98,3 +98,30 @@
 
 
 })(window.jQuery);
+
+
+
+function myFun(){
+	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+	if (document.getElementById("pass").value.length <=7){
+		alert("Password must be atleast 8 characters!");
+	 }
+
+		else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value))
+		 {
+		  location.href='assets/dashboard/index.html';
+			alert("Login Success!");
+		  
+		   
+		 }
+		 
+		 else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value))){
+			alert("You have entered an invalid email address!");
+		 }
+		   
+		   
+	   
+	
+	
+	}
