@@ -43,24 +43,24 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">Lourdes <em>  Food Park</em></a>
+                        <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="products.html">Products</a></li>
+                            <li><a href="index.php" class="active">Home</a></li>
+                            <li><a href="products.php">Products</a></li>
                            
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about.html">About Us</a>
-                                    <a class="dropdown-item" href="blog.html">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                                    <a class="dropdown-item" href="about.php">About Us</a>
+                                    <a class="dropdown-item" href="blog.php">Blog</a>
+                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
                                  
                                 </div>
                             </li>
-                            <li><a href="contact.html">Contact</a></li> 
+                            <li><a href="contact.php">Contact</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -125,7 +125,7 @@
                             <p>Food Description.</p>
 
                             <ul class="social-icons">
-                                <li><a href="product-details.html">+ View More</a></li>
+                                <li><a href="product-details.php">+ View More</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                             <p>Food Description.</p>
 
                             <ul class="social-icons">
-                                <li><a href="product-details.html">+ View More</a></li>
+                                <li><a href="product-details.php">+ View More</a></li>
                             </ul>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                             <p>Food Description.</p>
 
                             <ul class="social-icons">
-                                <li><a href="product-details.html">+ View More</a></li>
+                                <li><a href="product-details.php">+ View More</a></li>
                             </ul>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
             <br>
 
             <div class="main-button text-center">
-                <a href="products.html">View our products</a>
+                <a href="products.php">View our products</a>
             </div>
         </div>
     </section>

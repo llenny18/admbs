@@ -42,24 +42,24 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">Lourdes <em>  Food Park</em></a>
+                      <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="products.html">Products</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="products.php">Products</a></li>
          
                             <li class="dropdown">
                                 <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item active"  href="about.html">About Us</a>
-                                    <a class="dropdown-item" href="blog.html">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                                    <a class="dropdown-item active"  href="about.php">About Us</a>
+                                    <a class="dropdown-item" href="blog.php">Blog</a>
+                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
                                  
                                 </div>
                             </li>
-                            <li><a href="contact.html">Contact</a></li> 
+                            <li><a href="contact.php">Contact</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -148,7 +148,7 @@
                         <h2>Send us a <em>message</em></h2>
                         <p>Lalagyan pa.</p>
                         <div class="main-button">
-                            <a href="contact.html">Contact us</a>
+                            <a href="contact.php">Contact us</a>
                         </div>
                     </div>
                 </div>

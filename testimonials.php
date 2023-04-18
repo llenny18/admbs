@@ -42,24 +42,24 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">Lourdes <em>  Food Park</em></a>
+                      <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="products.html">Products</a></li>
-                         
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="products.php">Products</a></li>
+ 
                             <li class="dropdown">
                                 <a class="dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                               
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item"  href="about.html">About Us</a>
-                                    <a class="dropdown-item active" href="blog.html">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.html">Testimonials</a>
-                                 
+                                    <a class="dropdown-item"  href="about.php">About Us</a>
+                                    <a class="dropdown-item" href="blog.php">Blog</a>
+                                    <a class="dropdown-item active" href="testimonials.php">Testimonials</a>
+                     
                                 </div>
                             </li>
-                            <li><a href="contact.html">Contact</a></li> 
+                            <li><a href="contact.php">Contact</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -79,67 +79,69 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Read our <em>Blog</em></h2>
-                        <p>Introduction</p>
+                        <h2>Read our <em>Testimonials</em></h2>
+                        <p>What are the best combination of foods in Lourdes Food Park?</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ***** Blog Start ***** -->
-    <section class="section" id="our-classes">
+     <!-- ***** Testimonials Item Start ***** -->
+    <section class="section" id="features">
         <div class="container">
             <br>
             <br>
+            <br>
             <div class="row">
-                <div class="col-lg-8">
-                    <section class='tabs-content'>
-                      <article>
-                        <img src="assets/images/blog-image-1-940x460.jpg" alt="">
-                        <h4>Title.</h4>
-
-                        <p><i class="fa fa-user"></i> Allen Eidrian S. Ramos &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-
-                        <p>Blog Allen.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
-
-                      <br>
-                      <br>
-
-                      <article>
-                        <img src="assets/images/blog-image-2-940x460.jpg" alt="">
-                        <h4>Title.</h4>
-                        <p><i class="fa fa-user"></i> Aleister Alinsunurin &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Blog Aleister.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
-
-                      <br>
-                      <br>
-
-                      <article>
-                        <img src="assets/images/blog-image-3-940x460.jpg" alt="">
-                        <h4>Title.</h4>
-                        <p><i class="fa fa-user"></i> Belle Colleen Trayfalgar &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Blog Belle.</p>
-                        <div class="main-button">
-                            <a href="blog-details.html">Continue Reading</a>
-                        </div>
-                      </article>
-                    </section>
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="assets/images/features-first-icon.png" alt="First One">
+                            </div>
+                            <div class="right-content">
+                                <h4>Name</h4>
+                                <p><em>"What Combination of food"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="assets/images/features-first-icon.png" alt="second one">
+                            </div>
+                            <div class="right-content">
+                                <h4>Name</h4>
+                                <p><em>"What Combination of food"</em></p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-
-                
+                <div class="col-lg-6">
+                    <ul class="features-items">
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="assets/images/features-first-icon.png" alt="fourth muscle">
+                            </div>
+                            <div class="right-content">
+                                <h4>Name</h4>
+                                <p><em>"What Combination of food"</em></p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="left-icon">
+                                <img src="assets/images/features-first-icon.png" alt="training fifth">
+                            </div>
+                            <div class="right-content">
+                                <h4>Name</h4>
+                                <p><em>"What Combination of food"</em></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
-    <!-- ***** Blog End ***** -->
+    <!-- ***** Testimonials Item End ***** -->
 
     <!-- ***** Footer Start ***** -->
     <footer>
