@@ -96,59 +96,69 @@
             <br>
 
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
+                <
+                <?php
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "trysite";
+ $conn = new mysqli($hostName, $userName, $password, $databaseName);
+ echo "<script > alert('Connection Success')</script>";
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-                            <h4>Food Name </h4>
+$db= $conn;
+$tableName="foods";
+$columns= ['foodid', 'foodName','foodPrice','foodtype','quantity'];
+$fetchData = fetch_data($db, $tableName, $columns);
+function fetch_data($db, $tableName, $columns){
+ if(empty($db)){
+  $msg= "Database connection error";
+ }elseif (empty($columns) || !is_array($columns)) {
+  $msg="columns Name must be defined in an indexed array";
+ }elseif(empty($tableName)){
+   $msg= "Table Name is empty";
+}else{
+$columnName = implode(", ", $columns);
+$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodid Asc";
+$result = $db->query($query);
+if($result== true){ 
+ if ($result->num_rows > 0) {
+    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $msg= $row;
+ } else {
+    $msg= "No Data Found"; 
+ }
+}else{
+  $msg= mysqli_error($db);
+}
+}
 
-                            <p>Food Description.</p>
+return $msg;
 
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+}
+?>
+
+
+<?php
+      if(is_array($fetchData)){      
+      $sn=1;
+      foreach($fetchData as $data){
+    ?>
+<div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
                             <img src="assets/images/product-2-720x480.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
+                                <?php echo $data['foodPrice']??''; ?>
                             </span>
 
-                            <h4>Food Name </h4>
+                            <h4><?php echo $data['foodName']??''; ?></h4>
 
-                            <p>Food Description.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
-
-                            <h4>Food Name </h4>
-
-                            <p>Food Description.</p>
+                            <p><?php echo $data['foodtype']??''; ?></p>
 
                             <ul class="social-icons">
                                 <li><a href="product-details.php">+ Order</a></li>
@@ -157,67 +167,15 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-4-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
+     <?php
+      $sn++;}}else{ ?>
+      
+    <?php echo $fetchData; ?>
 
-                            <h4>Food Name </h4>
+    <?php
+    }?>
 
-                            <p>Food Description.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-5-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
-
-                            <h4>Food Name </h4>
-
-                            <p>Food Description.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-6-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
-                            </span>
-
-                            <h4>Food Name </h4>
-
-                            <p>Food Description.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
 
             <br>
                 
@@ -243,6 +201,11 @@
 
         </div>
     </section>
+
+
+
+
+    
     <!-- ***** Fleet Ends ***** -->
 
     
@@ -277,5 +240,13 @@
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
 
+
+    
   </body>
 </html>
+
+
+</body>
+
+</html>
+
