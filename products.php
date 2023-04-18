@@ -96,14 +96,14 @@
             <br>
 
             <div class="row">
-                <
+                
                 <?php
 $hostName = "localhost";
 $userName = "root";
 $password = "";
 $databaseName = "trysite";
  $conn = new mysqli($hostName, $userName, $password, $databaseName);
- echo "<script > alert('Connection Success')</script>";
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -146,7 +146,7 @@ return $msg;
       $sn=1;
       foreach($fetchData as $data){
     ?>
-<div class="col-lg-4">
+    <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
                             <img src="assets/images/product-2-720x480.jpg" alt="">
