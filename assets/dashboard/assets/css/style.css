@@ -703,16 +703,8 @@ aside.left-panel {
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:focus,
 .navbar .navbar-nav > .active > a:hover {
-  color: #D10000; }
-
-.clearfix{
-
-
-
-
+  color: #D10000; 
 }
-
-
 
 .navbar-nav li span.count {
   background: #a9d86e;
@@ -1572,7 +1564,7 @@ header .form-inline {
     color: #878787;
     display: inline-block;
     font-size: 16px;
-    float: left;
+    
     padding: 0 7px;
     width: inherit;
     text-align: center; }
@@ -1614,7 +1606,7 @@ header .form-inline {
   left: 40%; }
 
 .twt-feed {
-  -webkit-border-radius: 4px 4px 0 0;
+
   color: #FFFFFF;
   padding: 40px 10px 10px;
   position: relative;
@@ -2378,7 +2370,7 @@ footer.site-footer {
       display: inline-block; }
     .card-footer.bg-white [class*="float"].fa {
       display: inline-block;
-      float: left !important; }
+     }
 
   #traffic-chart {
     height: 232px !important; }

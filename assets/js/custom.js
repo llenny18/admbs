@@ -110,7 +110,7 @@ function myFun(){
 
 		else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value))
 		 {
-		  location.href='assets/dashboard/index.html';
+		  location.href='assets/dashboard/index.php';
 			alert("Login Success!");
 		  
 		   

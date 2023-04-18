@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+ <link rel="shortcut icon" href="images/icon.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -77,11 +77,11 @@
                     </li>
                     <li class="menu-title">UI elements</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Administer</a>
                         <ul class="sub-menu children dropdown-menu">                      
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.php">Tabs</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.php">Cards</a></li>
-                            <li><i class="fa fa-fire"></i><a href="ui-modals.php">Modals</a></li>
+                            <li><i class="fa fa-bars"></i><a href="ui-tabs.php">Manage Information</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.php">Add New Table</a></li>
+                            <li><i class="fa fa-fire"></i><a href="ui-modals.php">Register As Adminstrator</a></li>
                             
                         </ul>
                     </li>
@@ -89,18 +89,20 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="tables-basic.php">Orders Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.php">Manu Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-data.php">Menu Table</a></li>
                         </ul>
                     </li>
                 
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Images</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.php">Font Awesome</a></li>
-                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.php">Themefy Icons</a></li>
+                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.php">Profile Pictures</a></li>
+                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.php">Website Content</a></li>
                         </ul>
                     </li>
+                    
+            </div><!-- /.navbar-collapse -->
                     
             </div><!-- /.navbar-collapse -->
         </nav>
