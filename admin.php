@@ -81,7 +81,7 @@
 function myFun(){
 	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-	if (document.getElementById("pass").value.length <=7){
+	if (document.getElementByID("pass").value.length <=7){
 		alert("Password must be atleast 8 characters!");
 	 }
 

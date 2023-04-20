@@ -121,6 +121,7 @@ function fetch_data($db, $tableName, $columns){
    $msg= "Table Name is empty";
 }else{
 $columnName = implode(", ", $columns);
+
 $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodid Asc";
 $result = $db->query($query);
 if($result== true){ 
@@ -142,17 +143,18 @@ return $msg;
 
 
 <?php
-      if(is_array($fetchData)){      
-      $sn=1;
+      if(is_array($fetchData)){     
+      $sn = 1;
       foreach($fetchData as $data){
     ?>
     <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
+                            <img src="assets/images/product-1-720x480.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
+                              <del>160</del>
                                 <?php echo $data['foodPrice']??''; ?>
                             </span>
 
@@ -161,14 +163,17 @@ return $msg;
                             <p><?php echo $data['foodtype']??''; ?></p>
 
                             <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
+                                <li ><a href="product-details.php">+ Order</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
      <?php
-      $sn++;}}else{ ?>
+      $sn++;}
+      }
+      else
+      { ?>
       
     <?php echo $fetchData; ?>
 

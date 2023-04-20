@@ -74,7 +74,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
+    <div class="main-banner" id="top" >
         
         <video autoplay muted loop id="bg-video">
             <source src="assets/images/video.mp4" type="video/mp4" />
@@ -87,7 +87,7 @@
                 <div class="main-button">
             
                         <a href="add.php" target="target">Contact us</a>
-                        <iframe style="display:none;" name="target"></iframe>
+                        
                        
                     
                 </div>
