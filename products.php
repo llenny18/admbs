@@ -94,6 +94,25 @@
         <div class="container">
             <br>
             <br>
+            <form action ='' method = "GET">
+              <div class="row">
+                <div class="col md-4">
+                  <div class="input-group mb-3">
+                    <select name = "sort_alpha_price" class = "form-control">
+                      <option value="">---Select Option---</option>
+                      <option value="a-z" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "a-z"){echo "Selected"; }?>> A-Z (Ascending Order)</option>
+                      <option value="z-a" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "z-a"){echo "Selected"; }?>> Z-A (Descending Order)</option>
+                      <option value="l-h" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "l-h"){echo "Selected"; }?>> Lowest-Highest Price (Ascending Order)</option>
+                      <option value="h-l" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "h-l"){echo "Selected"; }?>> Highest-Lowest Price (Descending Order)</option>
+                    </select>
+                    <button type = "submit" class = "input-group-text btn btn-primary" id="basic-addon2">
+                      Sort
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
 
             <div class="row">
                 
@@ -121,8 +140,33 @@ function fetch_data($db, $tableName, $columns){
    $msg= "Table Name is empty";
 }else{
 $columnName = implode(", ", $columns);
+$sort_parameter = "foodid";
+$sort_option ="ASC";
 
-$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodid Asc";
+if(isset($_GET['sort_alpha_price']))
+{
+  if($_GET['sort_alpha_price'] == "a-z")
+  {
+    $sort_parameter = "foodName";
+    $sort_option = "ASC";
+  }
+  elseif($_GET['sort_alpha_price'] == "z-a")
+  {
+    $sort_parameter = "foodName";
+    $sort_option = "DESC";
+  }
+  elseif($_GET['sort_alpha_price'] == "l-h")
+  {
+    $sort_parameter = "foodPrice";
+    $sort_option = "ASC";
+  }
+  elseif($_GET['sort_alpha_price'] == "h-l")
+  {
+    $sort_parameter = "foodPrice";
+    $sort_option = "DESC";
+  }
+}
+$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY $sort_parameter $sort_option";
 $result = $db->query($query);
 if($result== true){ 
  if ($result->num_rows > 0) {
@@ -143,18 +187,17 @@ return $msg;
 
 
 <?php
-      if(is_array($fetchData)){     
-      $sn = 1;
+      if(is_array($fetchData)){      
+      $sn=1;
       foreach($fetchData as $data){
     ?>
     <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
+                            <img src="assets/images/product-2-720x480.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
-                              <del>160</del>
                                 <?php echo $data['foodPrice']??''; ?>
                             </span>
 
@@ -163,17 +206,14 @@ return $msg;
                             <p><?php echo $data['foodtype']??''; ?></p>
 
                             <ul class="social-icons">
-                                <li ><a href="product-details.php">+ Order</a></li>
+                                <li><a href="product-details.php">+ Order</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
      <?php
-      $sn++;}
-      }
-      else
-      { ?>
+      $sn++;}}else{ ?>
       
     <?php echo $fetchData; ?>
 
