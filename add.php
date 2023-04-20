@@ -26,7 +26,7 @@ if ($conn->query($sqlquery) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
+  
 ?>
 <script>
 function myFunction() {
