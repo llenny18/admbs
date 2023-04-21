@@ -113,7 +113,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-4-720x480.jpg" alt="">
+                            <img src="assets/images/product-4.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
@@ -133,7 +133,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-5-720x480.jpg" alt="">
+                            <img src="assets/images/product-5.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>
@@ -153,7 +153,7 @@
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
-                            <img src="assets/images/product-6-720x480.jpg" alt="">
+                            <img src="assets/images/product-6.jpg" alt="">
                         </div>
                         <div class="down-content">
                             <span>

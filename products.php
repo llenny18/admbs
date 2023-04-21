@@ -129,7 +129,7 @@ if ($conn->connect_error) {
 
 $db= $conn;
 $tableName="foods";
-$columns= ['foodid', 'foodName','foodPrice','foodtype','quantity'];
+$columns= ['foodid', 'foodName','foodPrice','foodType','quantity'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -192,25 +192,29 @@ return $msg;
       foreach($fetchData as $data){
     ?>
     <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <?php echo $data['foodPrice']??''; ?>
-                            </span>
+      <div class="trainer-item">
+          <div class="image-thumb">
+              <img src="assets/images/product-<?php echo $sn?>.jpg" alt="">
+          </div>
+          <div class="down-content">
+              <span>
+                  <?php echo $data['foodPrice']??''; ?>
+              </span>
 
-                            <h4><?php echo $data['foodName']??''; ?></h4>
+              <h4><?php echo $data['foodName']??''; ?></h4>
 
-                            <p><?php echo $data['foodtype']??''; ?></p>
+              <p><?php echo $data['foodType']??''; ?></p>
 
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ Order</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"
+              data-name="<?php echo $data['foodName']?>"
+              data-type="<?php echo $data['foodType']?>"
+              data-price="<?php echo $data['foodPrice']?>"
+              data-index="<?php echo $sn?>">
+                + Order
+              </button>
+          </div>
+      </div>
+    </div>
 
      <?php
       $sn++;}}else{ ?>
@@ -247,13 +251,65 @@ return $msg;
         </div>
     </section>
 
-
-
-
-    
+   
     <!-- ***** Fleet Ends ***** -->
 
-    
+    <!-- ***** Modal Start **** -->
+    <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row pb-2">
+                <img src="assets/images/product-1.jpg" class="img-fluid rounded" id="item-img" alt="">
+              </div>
+              <div class="row flex-nowrap my-2">
+                <div class="col-md-6">
+                  <h5 id="item-name">Item Name</h5>
+                  <p id="item-type">Item Type</p>
+                </div>
+                <div class="col-md-6">
+                  <h5 id="item-price">Item Price</h5>
+                  <p>Base Price</p>
+                </div>
+              </div>
+              <form>     
+                <div class="form-row my-3">
+                  <label for="message-text" class="col-form-label">Note to restaurant:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                <div class="form-row justify-content-center">
+                  <div class="input-group col-4">
+                    <div class="input-group-prepend">
+                      <button type="button" class="quantity-left-minus btn btn-light btn-number"  data-type="minus" data-field="">
+                        <span class="fa fa-minus"></span>
+                      </button>
+                    </div>
+                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1">
+                    <div class="input-group-append ">
+                      <button type="button" class="quantity-right-plus btn btn-light btn-number" data-type="plus" data-field="">
+                        <span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-dismiss="modal">Add to Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Modal End **** -->
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
@@ -266,7 +322,7 @@ return $msg;
             </div>
         </div>
     </footer>
-
+    
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 

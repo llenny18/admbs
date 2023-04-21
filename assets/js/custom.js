@@ -119,9 +119,45 @@ function myFun(){
 		 else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value))){
 			alert("You have entered an invalid email address!");
 		 }
-		   
-		   
-	   
-	
-	
+		     	   
 	}
+
+// Show modal
+$('#itemModal').on('show.bs.modal', function (e) {
+	var button = $(e.relatedTarget)
+	var name = button.data('name')
+	var type = button.data('type')
+	var price = button.data('price')
+	var index = button.data('index')
+	var modal = $(this)
+	modal.find('#item-name').text(name)
+	modal.find('#item-type').text(type)
+	modal.find('#item-price').text(price)
+	modal.find('#item-img').attr("src","assets/images/product-"+index+".jpg");
+})
+
+// Reset modal data on close
+$('#itemModal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
+})
+
+// Add/subtract quantity
+$(document).ready(function(){
+
+	var quantity=0;
+	$('.quantity-right-plus').click(function(e){
+			
+			e.preventDefault();
+			var quantity = parseInt($('#quantity').val());
+				$('#quantity').val(quantity + 1);
+		});
+	
+		$('.quantity-left-minus').click(function(e){
+			e.preventDefault();
+			var quantity = parseInt($('#quantity').val());
+				if(quantity>0){
+				$('#quantity').val(quantity - 1);
+				}
+		});
+		
+	});

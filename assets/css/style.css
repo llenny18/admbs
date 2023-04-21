@@ -1033,8 +1033,21 @@ contact
   background-color: #f9735b;
 }
 
+/* 
+---------------------------------------------
+modal
+--------------------------------------------- 
+*/
 
+.quantity-right-plus, .quantity-left-minus {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
 
+.input-qty {
+  max-width: 50 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
 
 /* 
 ---------------------------------------------
