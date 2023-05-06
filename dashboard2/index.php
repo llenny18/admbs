@@ -53,6 +53,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="?menu_table">Menu Table</a></li>
                             <li><i class="fa fa-table"></i><a href="?emp_table">Employees Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="?str_table">Stores Table</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -171,6 +172,9 @@
                 }
                 if(isset($_GET['emp_table'])){
                     include('emp_table.php');
+                }
+                if(isset($_GET['str_table'])){
+                    include('str_table.php');
                 }
                 if(isset($_GET['profile_pics'])){
                     include('profile_pics.php');

@@ -34,25 +34,23 @@ include('includes/connect.php')
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Menu Table</strong>
+                        <strong class="card-title">Store Table</strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Type</th>
+                                    <th>RID</th>
                                     <th>Store</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
     
                                 <?php
                                 $db= $conn;
-                                $tableName="foods";
-                                $columns= ['foodID', 'foodName','foodPrice','foodtype','RID'];
+                                $tableName="shops";
+                                $columns= ['RID', 'rname'];
                                 $fetchData = fetch_data($db, $tableName, $columns);
                                 function fetch_data($db, $tableName, $columns){
                                     if(empty($db)){
@@ -63,7 +61,7 @@ include('includes/connect.php')
                                     $msg= "Table Name is empty";
                                     }else{
                                     $columnName = implode(", ", $columns);
-                                    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodID Asc";
+                                    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY RID Asc";
                                     $result = $db->query($query);
                                     if($result== true){ 
                                         if ($result->num_rows > 0) {
@@ -86,11 +84,9 @@ include('includes/connect.php')
                                 ?>
 
                                 <tr>
-                                    <td><?php echo $data['foodID']??''; ?></td>
-                                    <td><?php echo $data['foodName']??''; ?></td>
-                                    <td><?php echo $data['foodPrice']??''; ?></td>
-                                    <td><?php echo $data['foodtype']??''; ?></td>
                                     <td><?php echo $data['RID']??''; ?></td>
+                                    <td><?php echo $data['rname']??''; ?></td>
+                                    
                                 </tr>
 
                                 <?php

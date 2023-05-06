@@ -120,7 +120,7 @@
 $hostName = "localhost";
 $userName = "root";
 $password = "";
-$databaseName = "trysite";
+$databaseName = "food_park";
  $conn = new mysqli($hostName, $userName, $password, $databaseName);
 
 if ($conn->connect_error) {
@@ -129,7 +129,7 @@ if ($conn->connect_error) {
 
 $db= $conn;
 $tableName="foods";
-$columns= ['foodid', 'foodName','foodPrice','foodType','quantity'];
+$columns= ['foodID', 'foodName','foodPrice','foodType',];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -140,7 +140,7 @@ function fetch_data($db, $tableName, $columns){
    $msg= "Table Name is empty";
 }else{
 $columnName = implode(", ", $columns);
-$sort_parameter = "foodid";
+$sort_parameter = "foodID";
 $sort_option ="ASC";
 
 if(isset($_GET['sort_alpha_price']))
