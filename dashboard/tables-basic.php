@@ -29,6 +29,28 @@
 
 </head>
 <body>
+
+
+<?php
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "food_park";
+ $conn = new mysqli($hostName, $userName, $password, $databaseName);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_GET['foodid'])){
+$id = $_GET['foodid'];
+$del = $conn->query("DELETE FROM foods where foodid='$id'");
+
+}
+
+
+
+?>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -203,25 +225,17 @@
                                             <th>Name</th>
                                             <th>Price</th>
                                             <th>Type</th>
-                                            <th>Quantity</th>
+                                            <th>RID</th>
+                                            <th>Operation</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
                                     <?php
-$hostName = "localhost";
-$userName = "root";
-$password = "";
-$databaseName = "trysite";
- $conn = new mysqli($hostName, $userName, $password, $databaseName);
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
 
 $db= $conn;
 $tableName="foods";
-$columns= ['foodid', 'foodName','foodPrice','foodtype','quantity'];
+$columns= ['foodid', 'foodName','foodPrice','foodtype','RID'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -263,7 +277,8 @@ return $msg;
                                             <td><?php echo $data['foodName']??''; ?></td>
                                             <td><?php echo $data['foodPrice']??''; ?></td>
                                             <td><?php echo $data['foodtype']??''; ?></td>
-                                            <td><?php echo $data['quantity']??''; ?></td>
+                                            <td><?php echo $data['RID']??''; ?></td>
+                                            <td><a href="tables-basic.php?foodid=<?php echo $data['foodid']??''; ?>" class="del" name="del" >Delete</a></td>
                                         </tr>
 
      <?php

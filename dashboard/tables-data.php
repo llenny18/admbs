@@ -195,10 +195,11 @@
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Store</th>
-                                            <th>Salary</th>
+                                            <th>User ID</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>RID</th>
+                                            <th>Operation</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -207,7 +208,7 @@
 $hostName = "localhost";
 $userName = "root";
 $password = "";
-$databaseName = "trysite";
+$databaseName = "food_park";
  $conn = new mysqli($hostName, $userName, $password, $databaseName);
 
 if ($conn->connect_error) {
@@ -215,8 +216,8 @@ if ($conn->connect_error) {
 }
 
 $db= $conn;
-$tableName="employees";
-$columns= ['EmployeeName', 'EmployeePosition','Store','Salary'];
+$tableName="user";
+$columns= ['UID', 'uname','pass','RID'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -227,7 +228,7 @@ function fetch_data($db, $tableName, $columns){
    $msg= "Table Name is empty";
 }else{
 $columnName = implode(", ", $columns);
-$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY EmployeeName Asc";
+$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY UID Asc";
 $result = $db->query($query);
 if($result== true){ 
  if ($result->num_rows > 0) {
@@ -254,10 +255,12 @@ return $msg;
     ?>
     
     <tr>
-                                            <td><?php echo $data['EmployeeName']??''; ?></td>
-                                            <td><?php echo $data['EmployeePosition']??''; ?></td>
-                                            <td><?php echo $data['Store']??''; ?></td>
-                                            <td><?php echo $data['Salary']??''; ?></td>
+                                            <td><?php echo $data['UID']??''; ?></td>
+                                            <td><?php echo $data['uname']??''; ?></td>
+                                            <td><?php echo $data['pass']??''; ?></td>
+                                            <td><?php echo $data['RID']??''; ?></td>
+                                            <td><a href="tables-data.php?UID=<?php echo $data['UID']??''; ?>" class="del" name="del" >Delete</a></td>
+                                        
                                         </tr>
 
      <?php

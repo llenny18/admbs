@@ -35,10 +35,10 @@
 				<span class="login100-form-title p-b-41">
 					Admin Login
 				</span>
-				<form class="login100-form validate-form p-b-33 p-t-5">
+				<form class="login100-form validate-form p-b-33 p-t-5" action="" method="post">
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="email" name="username" placeholder="User name" id ="email">
+						<input class="input100" type="text" name="username" placeholder="User name" id ="email">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -48,7 +48,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
-						<button class="login100-form-btn" onclick="myFun()">
+						<button class="login100-form-btn" type="submit" name="login" >
 							Login
 						</button>
 						
@@ -58,6 +58,53 @@
 			</div>
 		</div>
 	</div>
+	<?php 
+	
+
+	
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "food_park";
+ $conn = new mysqli($hostName, $userName, $password, $databaseName);
+
+
+	if(isset($_POST['login'])){
+	$usname = $_POST['username'];
+	$password = $_POST['pass'];
+
+	$val_check = "Select * from user where uname = '$usname'" ;
+	 
+	  $val = mysqli_query($conn, $val_check);
+	  $result = $conn->query( $val_check );
+	  $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+	  $num = mysqli_num_rows($val);
+
+	  if($num>0){
+		foreach($row as $val){
+		if($val['pass'] == $password){
+		
+			echo "<script>alert('Login Success'); document.location.href = 'dashboard2/index.php';</script>";
+			
+		}
+		else{
+			echo "<script>alert('Wrong Password')</script>";
+	
+	}
+	}
+	  }
+	  else{
+		  echo "<script>alert('Wrong username or Password')</script>";
+  
+  }
+
+
+	}
+
+
+	
+	
+	?>
 	
 
 	<div id="dropDownSelect1"></div>
@@ -76,35 +123,7 @@
 	<script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
 	<script src="assets/vendor/countdowntime/countdowntime.js"></script>
-	<script>
-
-function myFun(){
-	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-	if (document.getElementByID("pass").value.length <=7){
-		alert("Password must be atleast 8 characters!");
-	 }
-
-		else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value) && document.getElementById("pass").value.length >=8)
-		 {
-		  location.href='assets/dashboard/index.php';
-			alert("Login Success!");
-		  
-		   
-		 }
-		 
-		 else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value))){
-			alert("You have entered an invalid email address!");
-		 }
-		   
-		   
-	   
 	
-	
-	}
-
-
-	</script>
 <!--===============================================================================================-->
 	
 </body>

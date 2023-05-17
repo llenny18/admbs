@@ -19,6 +19,24 @@ Googel Fonts  */
 
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+.del{
+  background-color: #000;
+  color: #fff;
+  padding: 5px 30px;
+  font-size: bold;
+  
+  }
+  
+  .del:hover{
+    background-color: #000;
+    color: #FFCCCB;
+    padding: 5px 30px;
+    font-size: bold;
+    cursor: pointer;
+    
+    
+    }
+
 .bg-flat-color-1 {
   background: #00c292; }
 
