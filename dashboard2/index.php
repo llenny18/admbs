@@ -60,7 +60,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Media</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-id-badge"></i><a href="?profile_pics">Profile Pictures</a></li>
+                            <li><i class="menu-icon fa fa-id-badge"></i><a href="?profile_pics">Upload Image</a></li>
                             <li><i class="menu-icon fa fa-file-image-o"></i><a href="?site_content">Website Content</a></li>
                         </ul>
                     </li> 
@@ -139,14 +139,9 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i>Admin Name</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-bell-o"></i>Notifications <span class="count">13</span></a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>

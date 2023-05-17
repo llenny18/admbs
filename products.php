@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+  <?php 
+  session_start();
+  
+  
+  ?>
 
   <head>
 
@@ -209,10 +214,14 @@ return $msg;
               data-name="<?php echo $data['foodName']?>"
               data-type="<?php echo $data['foodType']?>"
               data-price="<?php echo $data['foodPrice']?>"
-              data-index="<?php echo $sn?>">
+              data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
                 + Order
               </button>
           </div>
+          
+
+
+
       </div>
     </div>
 
@@ -225,7 +234,18 @@ return $msg;
     }?>
 
     </div>
+    
+    <?php 
+for ($x = 0; $x <= 100; $x+=1) {
+if(isset($_POST[$x.'btn'])){
+$_SESSION['name'] = "qqqqqq";
 
+
+
+}}
+
+
+?>
             <br>
                 
             <nav>
@@ -270,7 +290,8 @@ return $msg;
               </div>
               <div class="row flex-nowrap my-2">
                 <div class="col-md-6">
-                  <h5 id="item-name">Item Name</h5>
+                  <h5 id="item-name">Name</h5>
+                  
                   <p id="item-type">Item Type</p>
                 </div>
                 <div class="col-md-6">
@@ -278,7 +299,7 @@ return $msg;
                   <p>Base Price</p>
                 </div>
               </div>
-              <form>     
+              <form action="" method="post">     
                 <div class="form-row my-3">
                   <label for="message-text" class="col-form-label">Note to restaurant:</label>
                   <textarea class="form-control" id="message-text"></textarea>
@@ -298,17 +319,53 @@ return $msg;
                     </div>
                   </div>
                 </div>
+                <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button name="order" type ="submit" class="btn btn-primary" >Add to Order</button>
+          </div>
               </form>
             </div>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary" data-dismiss="modal">Add to Order</button>
-          </div>
+          
         </div>
       </div>
     </div>
     <!-- ***** Modal End **** -->
+<?php 
+
+if(isset($_POST['order'])){
+echo "<script>alert('".$_SESSION['name']."');</script>";
+ 
+  //$name = $_POST['name'];
+  
+  
+ //$mail->isSMTP();
+  //$mail->Host = 'smtp.gmail.com';
+  //$mail->SMTPAuth = true;
+ // $mail->Username = 'schoolverif@gmail.com';
+ // $mail->Password = 'ehvtfmsvsfgmefuz';
+//  $mail->SMTPSecure = 'ssl';
+ // $mail->Port = 465;
+  
+ // $mail->setFrom('schoolverif@gmail.com');
+  
+ // $mail->addAddress("ediwawkiki@gmail.com");
+  
+ // $mail->isHTML(true);
+  
+  //$mail->Subject = 'Hello '.$_POST[$i.'email'].' this is your verification code!';
+  //$mail->Body =  "New booking by ".$client."<br> Reserved this service: ".$name.". <br> Price: ".$price.".<br> Size: ".$size.".<br> Category: ".$category.".<br> Date: ".$date.".<br> Time: ".$time.".<br> Phone Number: ".$email;
+  
+ // $mail->send();
+ // echo "<script>alert('Sent!')</script>;";
+  
+  }
+
+?>
+
+
+
+
 
     <!-- ***** Footer Start ***** -->
     <footer>

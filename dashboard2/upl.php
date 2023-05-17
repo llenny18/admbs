@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-
-<?php
-include('includes/connect.php')
-?>
-<div style="background-color: White; padding: 20px; margin: 20px; top:20%;">
-<form action="" method="post" action="upl.php"
-			  enctype="multipart/form-data"> 
-  <div class="form-group">
-    <b><label for="exampleFormControlFile1">Upload Image Here</label></b>
-    <input type="file" id="file-input" name="files" class="form-control-file" required>
-   
-  </div>
-  <button type="submit" name="upload">Upload</button>
-</form>
-</div>
-
-<body>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</body>
-
-
 
 <?php 
 $imagecount = count(glob("../assets/prodimg/*")) + 1;
@@ -36,6 +14,8 @@ $bcerror = $_FILES['files']['error'];
 $bctype = $_FILES['files']['type'];
 $bcext = explode('.', $bcname);
 $bcactualexp = strtolower(end($bcext));
+echo "<script>alert('$bcname')</script>";
+echo "<script>alert('$bcactualexp')</script>";
 
 $allowedext = array('jpg', 'jpeg', 'png');
 
