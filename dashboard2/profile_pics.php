@@ -8,6 +8,7 @@ include('includes/connect.php')
 			  enctype="multipart/form-data"> 
   <div class="form-group">
     <b><label for="exampleFormControlFile1">Upload Product Image Here Note: Only '.jpg' is allowed</label></b>
+    <input type="text" id="file-input" name="name" class="form-control-file" required>
     <input type="file" id="file-input" name="files" class="form-control-file" required>
    
   </div>
@@ -28,6 +29,7 @@ $imagecount = count(glob("../assets/prodimg/*")) + 1;
   
 if(isset($_POST['upload'])){ 
 
+  $fname = $_POST['name'];
 $bcert = $_FILES['files'];
 $bcname = $_FILES['files']['name'];
 $bctmpname = $_FILES['files']['tmp_name'];
@@ -42,7 +44,7 @@ $allowedext = array('jpg');
 if (in_array($bcactualexp, $allowedext)){
  if($bcerror ==0){
      if($bcsize < 1000000){
-             $bcnamenew = "prod".$imagecount.".".$bcactualexp;
+             $bcnamenew = $fname.".".$bcactualexp;
              $bcDestination = "../assets/prodimg/".$bcnamenew;
              move_uploaded_file($bctmpname, $bcDestination);
 

@@ -217,7 +217,7 @@ return $msg;
     <div class="col-lg-4">
       <div class="trainer-item">
           <div class="image-thumb">
-              <img src="assets/prodimg/prod<?php echo $sn?>.jpg" alt="">
+              <img src="assets/prodimg/prod<?php echo $data['foodName']??'';?>.jpg" alt="">
           </div>
           <div class="down-content">
               <span>
