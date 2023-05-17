@@ -23,7 +23,7 @@ if (in_array($bcactualexp, $allowedext)){
  if($bcerror ==0){
      if($bcsize < 1000000){
              $bcnamenew = "prod".$imagecount.".".$bcactualexp;
-             $bcDestination = "../assets/prodimg/".$bcnamenew;
+             $bcDestination = "../assets/prodimg/prod".$bcnamenew;
              move_uploaded_file($bctmpname, $bcDestination);
 
             

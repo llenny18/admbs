@@ -128,12 +128,11 @@ $('#itemModal').on('show.bs.modal', function (e) {
 	var name = button.data('name')
 	var type = button.data('type')
 	var price = button.data('price')
-	var index = button.data('index')
 	var modal = $(this)
 	modal.find('#item-name').text(name)
 	modal.find('#item-type').text(type)
 	modal.find('#item-price').text(price)
-	modal.find('#item-img').attr("src","assets/images/product-"+index+".jpg");
+	modal.find('#item-img').attr("src","assets/prodimg/"+name+".jpg");
 })
 
 // Reset modal data on close

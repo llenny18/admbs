@@ -217,7 +217,7 @@ return $msg;
     <div class="col-lg-4">
       <div class="trainer-item">
           <div class="image-thumb">
-              <img src="assets/prodimg/prod<?php echo $data['foodName']??'';?>.jpg" alt="">
+              <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
           </div>
           <div class="down-content">
               <span>
@@ -232,7 +232,7 @@ return $msg;
               data-name="<?php echo $data['foodName']?>"
               data-type="<?php echo $data['foodType']?>"
               data-price="<?php echo $data['foodPrice']?>"
-              data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
+              name="<?php echo $sn?>btn">
                 + Order
               </button>
           </div>
@@ -304,7 +304,7 @@ $_SESSION['name'] = "qqqqqq";
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row pb-2">
-                <img src="assets/images/product-1.jpg" class="img-fluid rounded" id="item-img" alt="">
+                <img src="source" class="img-fluid rounded" id="item-img" alt="">
               </div>
               <div class="row flex-nowrap my-2">
                 <div class="col-md-6">
