@@ -103,6 +103,12 @@
               <div class="row">
                 <div class="col md-4">
                   <div class="input-group mb-3">
+                    <form action="" method = "GET">
+                      
+                      <input type="text" name="search" value="<?php if(isset($_GET['search'])) {echo $_GET['search']; }?>" class="form-control" placeholder="Search Menu">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                    
+                    </form>
                     <select name = "sort_alpha_price" class = "form-control">
                       <option value="">---Select Option---</option>
                       <option value="a-z" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "a-z"){echo "Selected"; }?>> A-Z (Ascending Order)</option>
@@ -171,7 +177,19 @@ if(isset($_GET['sort_alpha_price']))
     $sort_option = "DESC";
   }
 }
-$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY $sort_parameter $sort_option";
+
+if (isset($_GET['search']))
+{
+  $search_value = $_GET["search"];
+  $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' ORDER BY $sort_parameter $sort_option";
+  if(empty($query)){
+    $msg= "Product not found.";
+  }
+}
+else{
+  $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY $sort_parameter $sort_option";
+}
+
 $result = $db->query($query);
 if($result== true){ 
  if ($result->num_rows > 0) {
