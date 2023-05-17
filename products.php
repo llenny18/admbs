@@ -231,7 +231,7 @@ return $msg;
       <form action="" method="post">
       <div class="trainer-item">
           <div class="image-thumb">
-              <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
+              <img src="assets/prodimg/prod<?php echo $data['foodName']??'';?>.jpg" alt="">
           </div>
           <div class="down-content">
               <span>
@@ -247,7 +247,7 @@ return $msg;
               data-type="<?php echo $data['foodType']?>"
               data-price="<?php echo $data['foodPrice']?>"
               data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
-                + Order
+                + Add to Cart
               </button>
             
           </div>
@@ -331,47 +331,87 @@ echo "<script>alert('Sent!')</script>;";
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="row pb-2">
-                <img src="assets/images/product-1.jpg" class="img-fluid rounded" id="item-img" alt="">
-              </div>
-              <div class="row flex-nowrap my-2">
-                <div class="col-md-6">
-                  <h5 id="item-name">Name</h5>
-                  
-                  <p id="item-type">Item Type</p>
-                </div>
-                <div class="col-md-6">
-                  <h5 id="item-price">Item Price</h5>
-                  <p>Base Price</p>
-                </div>
-              </div>
-              <form action="" method="post">     
-                <div class="form-row my-3">
-                  <label for="message-text" class="col-form-label">Note to restaurant:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
-                </div>
-                <div class="form-row justify-content-center">
-                  <div class="input-group col-4">
-                    <div class="input-group-prepend">
-                      <button type="button" class="quantity-left-minus btn btn-light btn-number"  data-type="minus" data-field="">
-                        <span class="fa fa-minus"></span>
-                      </button>
-                    </div>
-                    <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1">
-                    <div class="input-group-append ">
-                      <button type="button" class="quantity-right-plus btn btn-light btn-number" data-type="plus" data-field="">
-                        <span class="fa fa-plus"></span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button name="order" type ="submit" class="btn btn-primary" >Add to Order</button>
-          </div>
-              </form>
+          <table class="table table-bordered p-2">
+  <thead>
+
+
+
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+ 
+
+  $db= $conn;
+  $tableName="cart";
+  $columns= ['id', 'fname', 'ftype', 'fprice'];
+  
+  function fetch_data30($db, $tableName, $columns){
+   if(empty($db)){
+    $msg= "Database connection error";
+   }elseif (empty($columns) || !is_array($columns)) {
+    $msg="columns Name must be defined in an indexed array";
+   }elseif(empty($tableName)){
+     $msg= "Table Name is empty";
+  }else{
+  $columnName = implode(", ", $columns);
+  $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY id Asc";
+  $result = $db->query($query);
+  if($result== true){ 
+   if ($result->num_rows > 0) {
+      $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+      $msg= $row;
+   } else {
+      $msg= "No Data Found"; 
+   }
+  }else{
+    $msg= mysqli_error($db);
+  }
+  }
+  
+  return $msg;
+  
+  }
+  $fetchData = fetch_data30($db, $tableName, $columns);
+
+      if(is_array($fetchData)){      
+      $sn=1;
+      foreach($fetchData as $data){
+    ?>
+    
+    <tr>
+    
+    <th scope="col"><?php echo $data['fname'];?></th>
+    <th scope="col"><?php echo $data['ftype'];?></th>
+    <th scope="col"><?php echo $data['fprice'];?></th>
+  </tr>                                  
+
+
+
+     <?php
+      $sn++;}}else{ ?>
+      
+    <?php echo $fetchData; ?>
+
+    <?php
+    }?>
+
+
+   
+  </tbody>
+</table>
+<label>Enter Contact Number and Name</label>
+<input type="text" name="Name">
+
+<button type="submit" name="reset" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Reset Cart</button>
+<button type="submit" name="checkout" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Checkout</button>
+              
+
+
+</form>
             </div>
           </div>
           <?php 
