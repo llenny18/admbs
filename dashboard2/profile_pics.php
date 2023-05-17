@@ -7,7 +7,7 @@ include('includes/connect.php')
 <form action="" method="post" action="upl.php"
 			  enctype="multipart/form-data"> 
   <div class="form-group">
-    <b><label for="exampleFormControlFile1">Upload Image Here</label></b>
+    <b><label for="exampleFormControlFile1">Upload Product Image Here Note: Only '.jpg' is allowed</label></b>
     <input type="file" id="file-input" name="files" class="form-control-file" required>
    
   </div>
@@ -37,7 +37,7 @@ $bctype = $_FILES['files']['type'];
 $bcext = explode('.', $bcname);
 $bcactualexp = strtolower(end($bcext));
 
-$allowedext = array('jpg', 'jpeg', 'png');
+$allowedext = array('jpg');
 
 if (in_array($bcactualexp, $allowedext)){
  if($bcerror ==0){
