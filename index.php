@@ -82,11 +82,13 @@
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>The Food park you should Visit to Unwind!</h6>
-                <h2>Affordable <em>Food Park</em> in Lipa City</h2>
+            <h6>Sitio Lourdes Pinagtung-Ulan, San Jose, Batangas City, Philippines</h6>
+                
+                <h2>Welcome to  <em>A's Kai Garden</em> Food Park</h2>
+                
                 <div class="main-button">
             
-                        <a href="add.php" target="target">Contact us</a>
+                      
                         
                        
                     
@@ -103,73 +105,90 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Our Top Selling <em>Dishes</em></h2>
+                        <h2>Our high quality <em>Dishes</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>Qoute.</p>
+                        <p>A place where you can bond with friends, and family members and enjoy the ambiance while trying out.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
+                
+<?php
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "food_park";
+ $conn = new mysqli($hostName, $userName, $password, $databaseName);
+
+            $db= $conn;
+$tableName="foods";
+$columns= ['foodID', 'foodName', 'foodType', 'foodPrice', 'RID'];
+$fetchData = fetch_data($db, $tableName, $columns);
+function fetch_data($db, $tableName, $columns){
+ if(empty($db)){
+  $msg= "Database connection error";
+ }elseif (empty($columns) || !is_array($columns)) {
+  $msg="columns Name must be defined in an indexed array";
+ }elseif(empty($tableName)){
+   $msg= "Table Name is empty";
+}else{
+$columnName = implode(", ", $columns);
+$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodID Asc Limit 3";
+$result = $db->query($query);
+if($result== true){ 
+ if ($result->num_rows > 0) {
+    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $msg= $row;
+ } else {
+    $msg= "No Data Found"; 
+ }
+}else{
+  $msg= mysqli_error($db);
+}
+}
+
+return $msg;
+
+}
+?>
+
+
+<?php
+      if(is_array($fetchData)){      
+      $sn=1;
+      foreach($fetchData as $data){
+    ?>
+  
                 <div class="col-lg-4">
                     <div class="trainer-item">
                         <div class="image-thumb">
                             <img src="assets/images/product-4.jpg" alt="">
                         </div>
                         <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>10.00
-                            </span>
+                           <br>
 
-                            <h4>Food Name</h4>
+                            <h4><?php echo $data['foodName']?></h4>
 
-                            <p>Food Description.</p>
+                            <p><?php echo $data['foodPrice']?></p>
 
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ View More</a></li>
-                            </ul>
+                           
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-5.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>10.00
-                            </span>
+                
+            
+ 
+     <?php
+      $sn++;}}else{ ?>
+      
+    <?php echo $fetchData; ?>
 
-                            <h4>Food Name</h4>
+    <?php
+    }?>
+		    
 
-                            <p>Food Description.</p>
 
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-6.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <del><sup>$</sup>15.00</del> <sup>$</sup>10.00
-                            </span>
-
-                            <h4>Food Name</h4>
-
-                            <p>Food Description.</p>
-
-                            <ul class="social-icons">
-                                <li><a href="product-details.php">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+           
             </div>
 
             <br>
@@ -186,18 +205,16 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading dark-bg">
-                        <h2>Read <em>More About U</em></h2>
+                        <h2>Read <em>More About Us</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>About Information.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cta-content text-center">
-                        <p>Infos.</p>
+                        <p>A's Kai Garden Foodpark will provide all the high-quality food and beverages to sate all your cravings! Nothing beats a fancy and relaxing place to eat every day after work, school, or any other day. Order now and enjoy the taste of food made with true love.</p>
 
-                        <p>Infos</p>
                     </div>
                 </div>
             </div>

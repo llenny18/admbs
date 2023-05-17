@@ -2,7 +2,18 @@
 <html lang="en">
   <?php 
   session_start();
-  
+  use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
+
+    
+
+$mail = new PHPMailer(true);
   
   ?>
 
@@ -26,6 +37,8 @@
     
     <body>
     
+    <button style="right: 0;position:fixed;bottom:0; padding: 10px; margin: 10px; Border: none; Background-color: #ed3b3b; color: white; font-weight: bold; border-radius: 10px; font-size: 20px;"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</button>
+
     <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
       <div class="preloader-inner">
@@ -215,6 +228,7 @@ return $msg;
       foreach($fetchData as $data){
     ?>
     <div class="col-lg-4">
+      <form action="" method="post">
       <div class="trainer-item">
           <div class="image-thumb">
               <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
@@ -228,19 +242,33 @@ return $msg;
 
               <p><?php echo $data['foodType']??''; ?></p>
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"
+              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"
               data-name="<?php echo $data['foodName']?>"
               data-type="<?php echo $data['foodType']?>"
               data-price="<?php echo $data['foodPrice']?>"
-              name="<?php echo $sn?>btn">
+              data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
                 + Order
               </button>
+            
           </div>
-          
+          <?php 
+
+if(isset($_POST[$sn.'btn'])){
+$conn->query("INSERT INTO cart (fname, ftype, fprice) VALUES ('".$data['foodName']."','".$data['foodType']."','".$data['foodPrice']."')");
+
+
+echo "<script>alert('Added to cart!')</script>;";
 
 
 
-      </div>
+}
+
+
+?>
+
+
+
+      </div></form>
     </div>
 
      <?php
@@ -253,17 +281,7 @@ return $msg;
 
     </div>
     
-    <?php 
-for ($x = 0; $x <= 100; $x+=1) {
-if(isset($_POST[$x.'btn'])){
-$_SESSION['name'] = "qqqqqq";
-
-
-
-}}
-
-
-?>
+   
             <br>
                 
             <nav>
@@ -289,12 +307,24 @@ $_SESSION['name'] = "qqqqqq";
         </div>
     </section>
 
-   
+    <?php 
+
+if(isset($_POST[$sn.'btn'])){
+$_SESSION['name'] = "qqqqqq";
+echo "<script>alert('Sent!')</script>;";
+
+
+
+}
+
+
+?>
     <!-- ***** Fleet Ends ***** -->
 
-    <!-- ***** Modal Start **** -->
-    <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <!-- ***** Modal Start **** --><form action="" method="post"> 
+    <div class="modal fade m-6" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+     
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -304,7 +334,7 @@ $_SESSION['name'] = "qqqqqq";
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row pb-2">
-                <img src="source" class="img-fluid rounded" id="item-img" alt="">
+                <img src="assets/images/product-1.jpg" class="img-fluid rounded" id="item-img" alt="">
               </div>
               <div class="row flex-nowrap my-2">
                 <div class="col-md-6">
@@ -344,42 +374,60 @@ $_SESSION['name'] = "qqqqqq";
               </form>
             </div>
           </div>
-          
+          <?php 
+if(isset($_POST['reset'])){
+  $conn->query("DELETE FROM cart");
+
+
+echo "<script>alert('Cart Resetted!')</script>;";
+
+}
+
+if(isset($_POST['checkout'])){
+ 
+  $selectQuery = "SELECT * FROM `cart` ORDER BY `id` ASC";
+  $result = mysqli_query($conn,$selectQuery);
+  if(mysqli_num_rows($result) > 0){
+    while($row = $result->fetch_assoc()){
+      $string = $string." <br> Food Name: ".$row['fname']." <br>Food Price: ".$row['fprice']."<br>";
+      
+    }
+  }else{
+    echo "<script>console.log('try')</script>";
+  }
+$csname = $_POST['Name'];
+
+  $mail->isSMTP();
+   $mail->Host = 'smtp.gmail.com';
+   $mail->SMTPAuth = true;
+  $mail->Username = 'ediwawkiki@gmail.com';
+  $mail->Password = 'sjixyrlrwbdixtav';
+ $mail->SMTPSecure = 'ssl';
+  $mail->Port = 465;
+   
+  $mail->setFrom('ediwawkiki@gmail.com');
+   
+  $mail->addAddress("ramosalleneid01@gmail.com");
+   
+  $mail->isHTML(true);
+   
+   $mail->Subject = 'Hello '.$csname." wanst to order this";
+   $mail->Body =  $string;
+   
+  $mail->send();
+  echo "<script>alert('Sent!')</script>;";
+  $conn->query("INSERT INTO history (hfname, hftype, hfprice) SELECT fname, ftype, fprice from cart");
+  $conn->query("DELETE FROM cart");
+  echo "window.location.href = 'products.php'";
+
+
+
+}
+?>
         </div>
       </div>
     </div>
     <!-- ***** Modal End **** -->
-<?php 
-
-if(isset($_POST['order'])){
-echo "<script>alert('".$_SESSION['name']."');</script>";
- 
-  //$name = $_POST['name'];
-  
-  
- //$mail->isSMTP();
-  //$mail->Host = 'smtp.gmail.com';
-  //$mail->SMTPAuth = true;
- // $mail->Username = 'schoolverif@gmail.com';
- // $mail->Password = 'ehvtfmsvsfgmefuz';
-//  $mail->SMTPSecure = 'ssl';
- // $mail->Port = 465;
-  
- // $mail->setFrom('schoolverif@gmail.com');
-  
- // $mail->addAddress("ediwawkiki@gmail.com");
-  
- // $mail->isHTML(true);
-  
-  //$mail->Subject = 'Hello '.$_POST[$i.'email'].' this is your verification code!';
-  //$mail->Body =  "New booking by ".$client."<br> Reserved this service: ".$name.". <br> Price: ".$price.".<br> Size: ".$size.".<br> Category: ".$category.".<br> Date: ".$date.".<br> Time: ".$time.".<br> Phone Number: ".$email;
-  
- // $mail->send();
- // echo "<script>alert('Sent!')</script>;";
-  
-  }
-
-?>
 
 
 
@@ -393,6 +441,7 @@ echo "<script>alert('".$_SESSION['name']."');</script>";
                     <p>
                         BSU - CICS Lipa -  GROUP Project
                     </p>
+                    
                 </div>
             </div>
         </div>
@@ -420,6 +469,11 @@ echo "<script>alert('".$_SESSION['name']."');</script>";
     
   </body>
 </html>
+
+<?php
+	// Account details
+;
+?>
 
 
 </body>

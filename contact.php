@@ -124,7 +124,7 @@
                         <i class="fa fa-map-marker"></i>
                     </div>
 
-                    <h5>Pinagtungulan San Jose, Batangas</h5>
+                    <h5>Sitio Lourdes Pinagtung-Ulan, San Jose, Batangas City, Philippines</h5>
 
                     <br>
                 </div>
@@ -134,48 +134,12 @@
     <!-- ***** Features Item End ***** -->
    
     <!-- ***** Contact Us Area Starts ***** -->
+           
     <section class="section" id="contact-us" style="margin-top: 0">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.5646096551977!2d121.08560317427046!3d13.924953093262697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd136c7a51cbc3%3A0x2334009739d65295!2sA&#39;s%20Kai%20Garden!5e0!3m2!1sen!2sph!4v1684347220959!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+                
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div id="map">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.5828296824325!2d121.08098511431339!3d13.923865797035463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd12a6474344ab%3A0x2d5c03a12ab21458!2sPinagtung-ulan%20Elementary%20School!5e0!3m2!1sen!2sph!4v1679375708689!5m2!1sen!2sph" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
-                        <form id="contact" action="" method="post">
-                          <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                              <fieldset>
-                                <input name="subject" type="text" id="subject" placeholder="Subject">
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                              </fieldset>
-                            </div>
-                          </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </section>
     <!-- ***** Contact Us Area Ends ***** -->
