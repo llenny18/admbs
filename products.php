@@ -126,17 +126,17 @@ $result_select2 = mysqli_query($conn, $select_query2);
             <br>
             <form action ='' method = "GET">
               <div class="row">
-                <div class="col md-4">
-                  <div class="input-group mb-3">
-                    <form action="" method = "GET">
-                      
-                      <input type="text" name="search" value="<?php if(isset($_GET['search'])) {echo $_GET['search']; }?>" class="form-control" placeholder="Search Menu">
-                      <button type="submit" class="btn btn-primary">Search</button>
-                  </div>
+                <div class="input-group mb-3 col-10">
+                  <input type="text" name="search" value="<?php if(isset($_GET['search'])) {echo $_GET['search']; }?>" class="form-control" placeholder="Search Menu">
+                  <button type="submit" class="btn btn-primary">Search</button>
                 </div>
-                <div class="col md-4">
+                <div class="col-2 text-right">
+                  <a href="products.php" class="btn btn-primary w-75">Reset</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col md-6">
                   <div class="input-group mb-3">
-                  </form>
                     <select id="store" name="store" class="form-control cc-cvc" value="" >
                         <option value="">---Select Option---</option>
                         <?php while($row2 = mysqli_fetch_array($result_select2)):;?>
@@ -148,7 +148,7 @@ $result_select2 = mysqli_query($conn, $select_query2);
                     </button>
                   </div>
                 </div>
-                <div class="col md-4">
+                <div class="col md-6">
                   <div class="input-group mb-3">
                     <select name = "sort_alpha_price" class = "form-control">
                       <option value="">---Select Option---</option>
@@ -168,289 +168,274 @@ $result_select2 = mysqli_query($conn, $select_query2);
 
             <div class="row">
                 
-                <?php
-$hostName = "localhost";
-$userName = "root";
-$password = "";
-$databaseName = "food_park";
- $conn = new mysqli($hostName, $userName, $password, $databaseName);
+            <?php
+            $hostName = "localhost";
+            $userName = "root";
+            $password = "";
+            $databaseName = "food_park";
+            $conn = new mysqli($hostName, $userName, $password, $databaseName);
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
 
-$db= $conn;
-$tableName="foods";
-$columns= ['foodID', 'foodName','foodPrice','foodType',];
-$fetchData = fetch_data($db, $tableName, $columns);
-function fetch_data($db, $tableName, $columns){
- if(empty($db)){
-  $msg= "Database connection error";
- }elseif (empty($columns) || !is_array($columns)) {
-  $msg="columns Name must be defined in an indexed array";
- }elseif(empty($tableName)){
-   $msg= "Table Name is empty";
-}else{
-$columnName = implode(", ", $columns);
-$sort_parameter = "foodID";
-$sort_option ="ASC";
-$store_filter = "";
+            $db= $conn;
+            $tableName="foods";
+            $columns= ['foodID', 'foodName','foodPrice','foodType',];
+            $fetchData = fetch_data($db, $tableName, $columns);
+            function fetch_data($db, $tableName, $columns){
+            if(empty($db)){
+              $msg= "Database connection error";
+            }elseif (empty($columns) || !is_array($columns)) {
+              $msg="columns Name must be defined in an indexed array";
+            }elseif(empty($tableName)){
+              $msg= "Table Name is empty";
+            }else{
+            $columnName = implode(", ", $columns);
+            $sort_parameter = "foodID";
+            $sort_option ="ASC";
+            $store_filter = "";
 
-if(isset($_GET['sort_alpha_price']))
-{
-  if($_GET['sort_alpha_price'] == "a-z")
-  {
-    $sort_parameter = "foodName";
-    $sort_option = "ASC";
-  }
-  elseif($_GET['sort_alpha_price'] == "z-a")
-  {
-    $sort_parameter = "foodName";
-    $sort_option = "DESC";
-  }
-  elseif($_GET['sort_alpha_price'] == "l-h")
-  {
-    $sort_parameter = "foodPrice";
-    $sort_option = "ASC";
-  }
-  elseif($_GET['sort_alpha_price'] == "h-l")
-  {
-    $sort_parameter = "foodPrice";
-    $sort_option = "DESC";
-  }
-}
+            if(isset($_GET['sort_alpha_price']))
+            {
+              if($_GET['sort_alpha_price'] == "a-z")
+              {
+                $sort_parameter = "foodName";
+                $sort_option = "ASC";
+              }
+              elseif($_GET['sort_alpha_price'] == "z-a")
+              {
+                $sort_parameter = "foodName";
+                $sort_option = "DESC";
+              }
+              elseif($_GET['sort_alpha_price'] == "l-h")
+              {
+                $sort_parameter = "foodPrice";
+                $sort_option = "ASC";
+              }
+              elseif($_GET['sort_alpha_price'] == "h-l")
+              {
+                $sort_parameter = "foodPrice";
+                $sort_option = "DESC";
+              }
+            }
 
-if (isset($_GET['search']))
-{
-  $search_value = $_GET["search"];
-  $store_filter = $_GET['store'];
-  if ($store_filter == ""){
-    $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' ORDER BY $sort_parameter $sort_option";
-  }
-  else{
-    $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' AND RID = $store_filter ORDER BY $sort_parameter $sort_option";
-  }
-  if(empty($query)){
-    $msg= "Product not found.";
-  }
-}
-else{
-  $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY $sort_parameter $sort_option";
-}
+            if (isset($_GET['search']))
+            {
+              $search_value = $_GET["search"];
+              $store_filter = $_GET['store'];
+              if ($store_filter == ""){
+                $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' ORDER BY $sort_parameter $sort_option";
+              }
+              else{
+                $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' AND RID = $store_filter ORDER BY $sort_parameter $sort_option";
+              }
+              if(empty($query)){
+                $msg= "Product not found.";
+              }
+            }
+            else{
+              $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY $sort_parameter $sort_option";
+            }
 
-$result = $db->query($query);
-if($result== true){ 
- if ($result->num_rows > 0) {
-    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $msg= $row;
- } else {
-    $msg= "No Data Found"; 
- }
-}else{
-  $msg= mysqli_error($db);
-}
-}
+            $result = $db->query($query);
+            if($result== true){ 
+            if ($result->num_rows > 0) {
+                $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                $msg= $row;
+            } else {
+                $msg= "No Data Found"; 
+            }
+            }else{
+              $msg= mysqli_error($db);
+            }
+            }
 
-return $msg;
+            return $msg;
 
-}
-?>
+            }
 
+            if(is_array($fetchData)){      
+            $sn=1;
+            foreach($fetchData as $data){
+            ?>
+              <div class="col-lg-4">
+                <form action="" method="post">
+                <div class="trainer-item">
+                  <div class="image-thumb">
+                      <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
+                  </div>
+                  <div class="down-content">
+                    <span>
+                        <?php echo $data['foodPrice']??''; ?>
+                    </span>
 
-<?php
-      if(is_array($fetchData)){      
-      $sn=1;
-      foreach($fetchData as $data){
-    ?>
-    <div class="col-lg-4">
-      <form action="" method="post">
-      <div class="trainer-item">
-          <div class="image-thumb">
-              <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
-          </div>
-          <div class="down-content">
-              <span>
-                  <?php echo $data['foodPrice']??''; ?>
-              </span>
+                    <h4><?php echo $data['foodName']??''; ?></h4>
 
-              <h4><?php echo $data['foodName']??''; ?></h4>
+                    <p><?php echo $data['foodType']??''; ?></p>
 
-              <p><?php echo $data['foodType']??''; ?></p>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"
+                    data-name="<?php echo $data['foodName']?>"
+                    data-type="<?php echo $data['foodType']?>"
+                    data-price="<?php echo $data['foodPrice']?>"
+                    data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
+                      + Add to Cart
+                    </button>
+                  </div>
+                  <?php 
 
-              <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#itemModal"
-              data-name="<?php echo $data['foodName']?>"
-              data-type="<?php echo $data['foodType']?>"
-              data-price="<?php echo $data['foodPrice']?>"
-              data-index="<?php echo $sn?>" name="<?php echo $sn?>btn">
-                + Add to Cart
-              </button>
-            
-          </div>
-          <?php 
+                    if(isset($_POST[$sn.'btn'])){
+                    $conn->query("INSERT INTO cart (fname, ftype, fprice) VALUES ('".$data['foodName']."','".$data['foodType']."','".$data['foodPrice']."')");
 
-if(isset($_POST[$sn.'btn'])){
-$conn->query("INSERT INTO cart (fname, ftype, fprice) VALUES ('".$data['foodName']."','".$data['foodType']."','".$data['foodPrice']."')");
+                    echo "<script>alert('Added to cart!')</script>;";
+                    }?>
+                </div>
+                </form>
+              </div>
 
+              <?php
+                $sn++;}}else{ 
+                echo $fetchData;
+              }?>
 
-echo "<script>alert('Added to cart!')</script>;";
+            </div>
+                  
+              <br>
+              <nav>
+                <ul class="pagination pagination-lg justify-content-center">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
 
+            </div>
+  </section>
 
-
-}
-
-
-?>
-
-
-
-      </div></form>
-    </div>
-
-     <?php
-      $sn++;}}else{ ?>
-      
-    <?php echo $fetchData; ?>
-
-    <?php
-    }?>
-
-    </div>
-    
-   
-            <br>
-                
-            <nav>
-              <ul class="pagination pagination-lg justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
-        </div>
-    </section>
-
-    <?php 
+<?php 
 
 if(isset($_POST[$sn.'btn'])){
 $_SESSION['name'] = "qqqqqq";
 echo "<script>alert('Sent!')</script>;";
-
-
-
 }
 
 
 ?>
     <!-- ***** Fleet Ends ***** -->
 
-    <!-- ***** Modal Start **** --><form action="" method="post"> 
-    <div class="modal fade m-6" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
-     
-    <div class="modal-dialog" role="document">
-        <div class="modal-content p-4">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <table class="table table-bordered p-2">
-  <thead>
+    <!-- ***** Cart Modal Start **** -->
+    <form action="" method="post"> 
+      <div class="modal fade m-6" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content p-4">
+            <div class="modal-header">
+              <h4>Cart</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <table class="table table-bordered p-2">
+                  <thead>
+                      <th scope="col">Name</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <div class="row m-2">
+                    <?php
+                    $db= $conn;
+                    $tableName="cart";
+                    $columns= ['id', 'fname', 'ftype', 'fprice'];
+                    
+                    function fetch_data30($db, $tableName, $columns){
+                    if(empty($db)){
+                      $msg= "Database connection error";
+                    }elseif (empty($columns) || !is_array($columns)) {
+                      $msg="columns Name must be defined in an indexed array";
+                    }elseif(empty($tableName)){
+                      $msg= "Table Name is empty";
+                    }else{
+                    $columnName = implode(", ", $columns);
+                    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY id Asc";
+                    $result = $db->query($query);
+                    if($result== true){ 
+                    if ($result->num_rows > 0) {
+                        $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                        $msg= $row;
+                    } else {
+                        $msg= "Your Cart is Empty."; 
+                    }
+                    }else{
+                      $msg= mysqli_error($db);
+                    }
+                    }
+                    
+                    return $msg;
+                    
+                    }
+                    $fetchData = fetch_data30($db, $tableName, $columns);
+
+                        if(is_array($fetchData)){      
+                        $sn=1;
+                        foreach($fetchData as $data){
+                      ?>
+                      
+                      <tr>
+                        <th scope="col"><?php echo $data['fname'];?></th>
+                        <th scope="col"><?php echo $data['ftype'];?></th>
+                        <th scope="col"><?php echo $data['fprice'];?></th>
+                      </tr>                                  
 
 
-
-      <th scope="col">Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php
- 
-
-  $db= $conn;
-  $tableName="cart";
-  $columns= ['id', 'fname', 'ftype', 'fprice'];
-  
-  function fetch_data30($db, $tableName, $columns){
-   if(empty($db)){
-    $msg= "Database connection error";
-   }elseif (empty($columns) || !is_array($columns)) {
-    $msg="columns Name must be defined in an indexed array";
-   }elseif(empty($tableName)){
-     $msg= "Table Name is empty";
-  }else{
-  $columnName = implode(", ", $columns);
-  $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY id Asc";
-  $result = $db->query($query);
-  if($result== true){ 
-   if ($result->num_rows > 0) {
-      $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
-      $msg= $row;
-   } else {
-      $msg= "Your Cart is Empty"; 
-   }
-  }else{
-    $msg= mysqli_error($db);
-  }
-  }
-  
-  return $msg;
-  
-  }
-  $fetchData = fetch_data30($db, $tableName, $columns);
-
-      if(is_array($fetchData)){      
-      $sn=1;
-      foreach($fetchData as $data){
-    ?>
-    
-    <tr>
-    
-    <th scope="col"><?php echo $data['fname'];?></th>
-    <th scope="col"><?php echo $data['ftype'];?></th>
-    <th scope="col"><?php echo $data['fprice'];?></th>
-  </tr>                                  
-
-
-
-     <?php
-      $sn++;}}else{ ?>
-      
-    <?php echo $fetchData; ?>
-
-    <?php
-    }?>
-
-
-   
-  </tbody>
-</table>
-<div class=row>
-<label>Enter Contact Number and Name</label>
-<input type="text" name="Name">
-
-<button type="submit" name="reset" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Reset Cart</button>
-<button type="submit" name="checkout" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Checkout</button>
+                      <?php
+                        $sn++;}}else{ 
+                        echo $fetchData;
+                      }?>
+                    </div>
+                  </tbody>
+                </table>
+              </div>
+              <div class="form-group row">
+                <label for="customerName" class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="customerName" name="cName" placeholder="Enter name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="customerNo" class="col-sm-4 col-form-label">Phone No.</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="customerNo" name="cNum" placeholder="Enter phone number">
+                </div>
+              </div>
+              <div class="row text-center">
+                <button type="submit" name="reset" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Reset Cart</button>
+                <button type="submit" name="checkout" style="margin:10px; border: none; Background-color: black; color: white; font-weight: bold; height: 40px;">Checkout</button>
+              </div>
               
-
-
-</form>
             </div>
           </div>
-          <?php 
+        </div>
+      </div>
+    </form>
+        
+    
+
+<?php 
 if(isset($_POST['reset'])){
   $conn->query("DELETE FROM cart");
 
@@ -459,51 +444,50 @@ echo "<script>alert('Cart Resetted!')</script>;";
 
 }
 
+
 if(isset($_POST['checkout'])){
  
   $selectQuery = "SELECT * FROM `cart` ORDER BY `id` ASC";
   $result = mysqli_query($conn,$selectQuery);
   if(mysqli_num_rows($result) > 0){
     while($row = $result->fetch_assoc()){
-      $string = $string." <br> Food Name: ".$row['fname']." <br>Food Price: ".$row['fprice']."<br>";
-      
+      $string = $string."<br>Item: ".$row['fname']." <br>Price: ".$row['fprice']."<br>";
     }
   }else{
     echo "<script>console.log('try')</script>";
   }
-$csname = $_POST['Name'];
+
+  $csname = $_POST['cName'];
+  $csnum = $_POST['cNum'];
 
   $mail->isSMTP();
-   $mail->Host = 'smtp.gmail.com';
-   $mail->SMTPAuth = true;
-  $mail->Username = 'ediwawkiki@gmail.com';
-  $mail->Password = 'sjixyrlrwbdixtav';
- $mail->SMTPSecure = 'ssl';
+  $mail->Host = 'smtp.gmail.com';
+  $mail->SMTPAuth = true;
+  $mail->Username = 'greateast.whatif@gmail.com';
+  $mail->Password = 'qjvqmndusrdvsscj';
+  $mail->SMTPSecure = 'ssl';
   $mail->Port = 465;
    
-  $mail->setFrom('ediwawkiki@gmail.com');
+  $mail->setFrom('greateast.whatif@gmail.com');
    
-  $mail->addAddress("ramosalleneid01@gmail.com");
+  $mail->addAddress("kai.garden.foodpark@gmail.com");
    
   $mail->isHTML(true);
    
-   $mail->Subject = 'Hello '.$csname." wanst to order this";
-   $mail->Body =  $string;
+  $mail->Subject = "New Order from $csname";
+  $mail->Body =  "<b>Order</b>".$string."<hr><b>Contact Information</b><br>Name: $csname <br>Phone No.: $csnum";
    
   $mail->send();
   echo "<script>alert('Sent!')</script>;";
   $conn->query("INSERT INTO history (hfname, hftype, hfprice) SELECT fname, ftype, fprice from cart");
   $conn->query("DELETE FROM cart");
   echo "window.location.href = 'products.php'";
-
-
-
 }
 ?>
         </div>
       </div>
     </div>
-    <!-- ***** Modal End **** -->
+    <!-- ***** Cart Modal End **** -->
 
 
 
