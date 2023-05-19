@@ -55,7 +55,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="about.php">About Us</a>
                                     <a class="dropdown-item" href="blog.php">Blog</a>
-                                    <a class="dropdown-item" href="testimonials.php">Testimonials</a>
+                                    
                                 
                                 </div>
                             </li>
