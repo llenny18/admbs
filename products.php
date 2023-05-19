@@ -37,7 +37,7 @@ $result_select2 = mysqli_query($conn, $select_query2);
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/icon.png" type="image/gif" sizes="16x16">
-    <title>Lourdes Foodpark</title>
+    <title>A's Kai Garden Foodpark</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -72,7 +72,7 @@ $result_select2 = mysqli_query($conn, $select_query2);
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                      <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
+                      <a href="index.php" class="logo">A's Kai Garden <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -259,7 +259,7 @@ return $msg;
       <form action="" method="post">
       <div class="trainer-item">
           <div class="image-thumb">
-              <img src="assets/prodimg/prod<?php echo $data['foodName']??'';?>.jpg" alt="">
+              <img src="assets/prodimg/<?php echo $data['foodName']??'';?>.jpg" alt="">
           </div>
           <div class="down-content">
               <span>
@@ -353,7 +353,7 @@ echo "<script>alert('Sent!')</script>;";
     <div class="modal fade m-6" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
      
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content p-4">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -393,7 +393,7 @@ echo "<script>alert('Sent!')</script>;";
       $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
       $msg= $row;
    } else {
-      $msg= "No Data Found"; 
+      $msg= "Your Cart is Empty"; 
    }
   }else{
     $msg= mysqli_error($db);
@@ -431,6 +431,7 @@ echo "<script>alert('Sent!')</script>;";
    
   </tbody>
 </table>
+<div class=row>
 <label>Enter Contact Number and Name</label>
 <input type="text" name="Name">
 
