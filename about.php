@@ -107,30 +107,28 @@
                     <img src="assets/images/about-image-1-940x460.jpg" alt="">
                     <h4>Know About Our History</h4>
 
-                    <p>Infos</p>
+                    <p class=text-justify>The business stared with the making of the Lomian and Paresan that made the owner of the wholefood park amazed by how can he be happy cooking and earning money. As the business is made as a customer-friendly environment the foods there is made with love and care. With the different partners and sponsors the food park is made. The start of the month October the A’s kai food park is fully made, with aesthetic looks every shop and with high quality food made by the professionals hired by the owner the food park still stands as a great way to unwind by students, workers and even businessmen.</p>
 
-                    <p>Infos</p>
-
-                    <p>Infos</p>
-                   
-                    <p>Infos</p>
                   </article>
                   <article id='tabs-2'>
                     <img src="assets/images/about-image-2-940x460.jpeg" alt="">
                     <h4>Explore How we maintain High Quality Food</h4>
-                    <p>Infos</p>
-                    <p>Infos</p>
+                    <p class=text-justify>A's Kai Garden maintains food quality through various measures to ensure that the food served to customers is safe, fresh, and of high quality.</p>
 
-                    <p>Infos</p>
+                    <p class=text-justify>Our park has a rigorous process for selecting suppliers. We choose reliable and reputable suppliers who provide high-quality ingredients. Regular inspections are conducted to ensure that the suppliers meet the required standards and adhere to proper food handling and storage practices.</p>
+
+                    <p class=text-justify>Maintaining proper hygiene and sanitation is crucial for food quality. Our staff follow strict handwashing protocols, wear appropriate protective clothing, and maintain clean food preparation areas. Regular cleaning and sanitization of surfaces, utensils, and equipment are essential to prevent cross-contamination.</p>
+
+                    <p class=text-justify>Finally, A's Kai Garden has quality control processes in place to monitor the quality of the food being served. This involces regular taste testing, visual inspections, and adherence to portion sizes and presentation standards.</p>
                   </article>
                   <article id='tabs-3'>
                     <img src="assets/images/about-image-3-940x460.jpg" alt="">
                     <h4>Know our Services</h4>
-                    <p>Infos</p>
+                    <p class=text-justify>A's Kai Garden, first and foremost, has a diverse range of food vendors, offering various cuisines and dishes. Visitors can explore a wide array of food options, from local favorites to international specialties, all conveniently located in one place.</p>
 
-                    <p>Infos</p>
+                    <p class=text-justify>Our park provides ample seating areas where visitors can enjoy their meals. These seating areas include tables, chairs, benches, and communal dining spaces, allowing individuals or groups to relax and savor their food.</p>
 
-                    <p>Infos</p>
+                    <p class=text-justify>A's Kai Garden also holds entertainment and recreational activities to enhance the overall experience. This may include live music performances, DJs, cultural shows, games, and play areas for children.</p>
                   </article>
                 </section>
               </div>
