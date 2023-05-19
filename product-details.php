@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/icon.png" type="image/gif" sizes="16x16">
-    <title>Lourdes Foodpark</title>
+    <title>A's Kai Garden Foodpark</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -42,7 +42,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                      <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
+                      <a href="index.php" class="logo">A's Kai Garden <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -81,7 +81,7 @@
                         <br>
                         <br>
                         <h2><del><sup>$</sup>18.00</del> <em><sup>$</sup>17.00</em></h2>
-                        <p>Lourdes Foodpark</p>
+                        <p>A's Kai Garden Foodpark</p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 <div class="contact-form">
                   <form action="#" id="contact">
                     <div class="form-group">
-                      <p>Lourdes Foodpark, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
+                      <p>A's Kai Garden Foodpark, consectetur adipisicing elit. Excepturi ratione molestias maxime odio!</p>
                     </div>
                     
                     <label>Extra 1</label>
