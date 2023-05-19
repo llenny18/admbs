@@ -80,7 +80,7 @@
                         <br>
                         <br>
                         <h2>Read our <em>Blog</em></h2>
-                        <p>Introduction</p>
+                    
                     </div>
                 </div>
             </div>
@@ -97,14 +97,12 @@
                     <section class='tabs-content'>
                       <article>
                         <img src="assets/images/blog-image-1-940x460.jpg" alt="">
-                        <h4>Title.</h4>
+                        <h4>Food is Good not with a twist.</h4>
 
-                        <p><i class="fa fa-user"></i> Allen Eidrian S. Ramos &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <p><i class="fa fa-user"></i> Allen Eidrian S. Ramos &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 01.01.2023 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
 
-                        <p>Blog Allen.</p>
-                        <div class="main-button">
-                            <a href="blog-details.php">Continue Reading</a>
-                        </div>
+                        <p>Imagine being at a peaceful and quiet place and eating with good food, one of the best feelings ever.</p>
+                      
                       </article>
 
                       <br>
@@ -112,12 +110,10 @@
 
                       <article>
                         <img src="assets/images/blog-image-2-940x460.jpg" alt="">
-                        <h4>Title.</h4>
-                        <p><i class="fa fa-user"></i> Aleister Alinsunurin &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Blog Aleister.</p>
-                        <div class="main-button">
-                            <a href="blog-details.php">Continue Reading</a>
-                        </div>
+                        <h4>Nothing beats good food with someone you love.</h4>
+                        <p><i class="fa fa-user"></i> Aleister Alinsunurin &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 01.01.2023 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <p>Love is what makes the world survive despite of everything it experienced, so with someone I love the most good food is a good way to date, we are now engaged!.</p>
+                     
                       </article>
 
                       <br>
@@ -125,12 +121,10 @@
 
                       <article>
                         <img src="assets/images/blog-image-3-940x460.jpg" alt="">
-                        <h4>Title.</h4>
-                        <p><i class="fa fa-user"></i> Belle Colleen Trayfalgar &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
-                        <p>Blog Belle.</p>
-                        <div class="main-button">
-                            <a href="blog-details.php">Continue Reading</a>
-                        </div>
+                        <h4>Events are all good quality.</h4>
+                        <p><i class="fa fa-user"></i> Belle Colleen Trayfalgar &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 01.01.2023 10:10 &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                        <p>The time I ate there at the A's kai garden food park I am amazed that people with talent is presenting in different events, with famous to newly starting ones the talented singers, dancers amd artists are all gicing their all and I am impressed because all of them are talented.</p>
+                      
                       </article>
                     </section>
                 </div>
