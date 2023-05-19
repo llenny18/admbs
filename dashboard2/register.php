@@ -48,7 +48,7 @@ if(isset($_POST['register'])){ //name of input button, if it is set, then this h
 <div class="col-lg-6">
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">Insert Food</strong>
+            <strong class="card-title">Register as Admin</strong>
         </div>
         <div class="card-body">
             <!-- Credit Card -->
