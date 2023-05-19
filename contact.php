@@ -114,7 +114,7 @@
                         <i class="fa fa-envelope"></i>
                     </div>
 
-                    <h5><a href="#">A's Kai Garden@gmail.com</a></h5>
+                    <h5><a href="#">kai.garden.foodpark@gmail.com</a></h5>
 
                     <br>
                 </div>
