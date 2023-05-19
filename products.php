@@ -15,6 +15,18 @@ require 'phpmailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
   
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "food_park";
+$conn = new mysqli($hostName, $userName, $password, $databaseName);
+
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+$select_query2 = "select * from shops";
+
+$result_select2 = mysqli_query($conn, $select_query2);
   ?>
 
   <head>
@@ -122,6 +134,15 @@ $mail = new PHPMailer(true);
                       <button type="submit" class="btn btn-primary">Search</button>
                     
                     </form>
+                    <select id="store" name="store" class="form-control cc-cvc" value="" >
+                        <option value="">---Select Option---</option>
+                        <?php while($row2 = mysqli_fetch_array($result_select2)):;?>
+                        <option value="<?php echo $row2[0];?>"><?php echo $row2[1];?></option>
+                        <?php endwhile;?>
+                    </select>
+                    <button type = "submit" class = "btn btn-primary">
+                      Filter
+                    </button>
                     <select name = "sort_alpha_price" class = "form-control">
                       <option value="">---Select Option---</option>
                       <option value="a-z" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "a-z"){echo "Selected"; }?>> A-Z (Ascending Order)</option>
@@ -129,7 +150,7 @@ $mail = new PHPMailer(true);
                       <option value="l-h" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "l-h"){echo "Selected"; }?>> Lowest-Highest Price (Ascending Order)</option>
                       <option value="h-l" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "h-l"){echo "Selected"; }?>> Highest-Lowest Price (Descending Order)</option>
                     </select>
-                    <button type = "submit" class = "input-group-text btn btn-primary" id="basic-addon2">
+                    <button type = "submit" class = "btn btn-primary">
                       Sort
                     </button>
                   </div>
@@ -166,6 +187,7 @@ function fetch_data($db, $tableName, $columns){
 $columnName = implode(", ", $columns);
 $sort_parameter = "foodID";
 $sort_option ="ASC";
+$store_filter = "";
 
 if(isset($_GET['sort_alpha_price']))
 {
@@ -194,7 +216,13 @@ if(isset($_GET['sort_alpha_price']))
 if (isset($_GET['search']))
 {
   $search_value = $_GET["search"];
-  $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' ORDER BY $sort_parameter $sort_option";
+  $store_filter = $_GET['store'];
+  if ($store_filter == ""){
+    $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' ORDER BY $sort_parameter $sort_option";
+  }
+  else{
+    $query = "SELECT ".$columnName." FROM $tableName"." WHERE foodName LIKE '%$search_value%' AND RID = $store_filter ORDER BY $sort_parameter $sort_option";
+  }
   if(empty($query)){
     $msg= "Product not found.";
   }
