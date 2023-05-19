@@ -132,8 +132,11 @@ $result_select2 = mysqli_query($conn, $select_query2);
                       
                       <input type="text" name="search" value="<?php if(isset($_GET['search'])) {echo $_GET['search']; }?>" class="form-control" placeholder="Search Menu">
                       <button type="submit" class="btn btn-primary">Search</button>
-                    
-                    </form>
+                  </div>
+                </div>
+                <div class="col md-4">
+                  <div class="input-group mb-3">
+                  </form>
                     <select id="store" name="store" class="form-control cc-cvc" value="" >
                         <option value="">---Select Option---</option>
                         <?php while($row2 = mysqli_fetch_array($result_select2)):;?>
@@ -143,6 +146,10 @@ $result_select2 = mysqli_query($conn, $select_query2);
                     <button type = "submit" class = "btn btn-primary">
                       Filter
                     </button>
+                  </div>
+                </div>
+                <div class="col md-4">
+                  <div class="input-group mb-3">
                     <select name = "sort_alpha_price" class = "form-control">
                       <option value="">---Select Option---</option>
                       <option value="a-z" <?php if (isset($_GET['sort_alpha_price']) && $_GET['sort_alpha_price'] == "a-z"){echo "Selected"; }?>> A-Z (Ascending Order)</option>

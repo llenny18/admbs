@@ -10,7 +10,7 @@
 	<link rel="icon" href="demo_icon.gif" type="image/gif">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/icon.png" type="image/gif" sizes="16x16">
-    <title>Lourdes Foodpark</title>
+    <title>A's Kai Garden Foodpark</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -43,7 +43,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Lourdes <em>  Food Park</em></a>
+                        <a href="index.php" class="logo">A's Kai Garden <em>  Food Park</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -105,9 +105,9 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Our high quality <em>Dishes</em></h2>
+                        <h2>Our <em>Food Stalls</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>A place where you can bond with friends, and family members and enjoy the ambiance while trying out.</p>
+                        <p>Explore our various food stalls offering a wide selection of cuisines!</p>
                     </div>
                 </div>
             </div>
@@ -121,8 +121,8 @@ $databaseName = "food_park";
  $conn = new mysqli($hostName, $userName, $password, $databaseName);
 
             $db= $conn;
-$tableName="foods";
-$columns= ['foodID', 'foodName', 'foodType', 'foodPrice', 'RID'];
+$tableName="shops";
+$columns= ['RID', 'rname'];
 $fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns){
  if(empty($db)){
@@ -133,7 +133,7 @@ function fetch_data($db, $tableName, $columns){
    $msg= "Table Name is empty";
 }else{
 $columnName = implode(", ", $columns);
-$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY foodID Asc Limit 3";
+$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY RID Asc";
 $result = $db->query($query);
 if($result== true){ 
  if ($result->num_rows > 0) {
@@ -161,17 +161,13 @@ return $msg;
   
                 <div class="col-lg-4">
                     <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-4.jpg" alt="">
+                        <div class="image-thumb">   
+                            <img src="assets/shopimg/<?php echo $data['rname']?>.jpg" alt="">
                         </div>
                         <div class="down-content">
                            <br>
-
-                            <h4><?php echo $data['foodName']?></h4>
-
-                            <p><?php echo $data['foodPrice']?></p>
-
-                           
+                            <h4><?php echo $data['rname']?></h4>
+                            <a class="btn btn-primary" href="products.php?search=&store=<?php echo $sn?>">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -194,7 +190,7 @@ return $msg;
             <br>
 
             <div class="main-button text-center">
-                <a href="products.php">View our products</a>
+                <a href="products.php">View All Menus</a>
             </div>
         </div>
     </section>
