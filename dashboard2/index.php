@@ -58,9 +58,9 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Media</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-picture-o"></i>Media</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-id-badge"></i><a href="?profile_pics">Upload Image</a></li>
+                            <li><i class="menu-icon fa fa-upload"></i><a href="?profile_pics">Upload Image</a></li>
                             <li><i class="menu-icon fa fa-file-image-o"></i><a href="?site_content">Website Content</a></li>
                         </ul>
                     </li> 
