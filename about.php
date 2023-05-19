@@ -143,10 +143,10 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <h2>Send us a <em>message</em></h2>
-                        <p>Lalagyan pa.</p>
+                        <h2>Other options to order with <em>A's Kai Garden Food Park</em></h2>
+                     
                         <div class="main-button">
-                            <a href="contact.php">Contact us</a>
+                            <a href="https://food.grab.com/gb/en/restaurant/tea-drop---forest-food-park/2-C3D3EXWAJVD2LA?exp_src=share&itemID=PHITE20220322092509061146"  target="_blank" >Order with Grab!</a>
                         </div>
                     </div>
                 </div>
